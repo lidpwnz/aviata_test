@@ -1,0 +1,12 @@
+FastAPI
+uvicorn
+httpx
+sqlalchemy
+alembic
+pydrive
+sqlalchemy_jsonfield
+ujson
+psycopg2-binary
+celery
+xmltodict
+Redis
