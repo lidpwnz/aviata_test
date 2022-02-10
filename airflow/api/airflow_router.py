@@ -2,7 +2,6 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from db.config import get_db
-from db.repos.airflow_repo import AirflowRepo
 from services.parser import Parser
 
 router = APIRouter(
@@ -15,6 +14,6 @@ async def search(db: Session = Depends(get_db)):
     return await Parser().parse_providers(db)
 
 
-@router.get('/results/{search_id}/')
-async def results(search_id: str, db: Session = Depends(get_db)):
-    return AirflowRepo(db).get(search_id=search_id, is_json=True)
+@router.get('/results/{search_id}/{currency}/')
+async def results(search_id: str, currency: str, db: Session = Depends(get_db)):
+    return await Parser().search_by_id(search_id, db, currency)
