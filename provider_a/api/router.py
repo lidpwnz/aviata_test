@@ -10,7 +10,4 @@ router = APIRouter(prefix='/api')
 
 @router.post("/search")
 async def search():
-    return await Parser().parse_a(os.environ.get(
-        'SERVICE_URL',
-        '1qLWsL570PxC5eTDkMYWBbFYtLTTBU1KE'
-    ))
+    return await Parser().parse_a(os.environ.get('SERVICE_URL'))
