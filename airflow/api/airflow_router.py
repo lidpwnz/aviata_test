@@ -11,9 +11,9 @@ router = APIRouter(
 
 @router.post('/search')
 async def search(db: Session = Depends(get_db)):
-    return await Parser().parse_providers(db)
+    return await Parser(db).parse_providers()
 
 
 @router.get('/results/{search_id}/{currency}/')
 async def results(search_id: str, currency: str, db: Session = Depends(get_db)):
-    return await Parser().search_by_id(search_id, db, currency)
+    return await Parser(db).search_by_id(search_id, currency)
