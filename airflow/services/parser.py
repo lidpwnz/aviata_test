@@ -17,7 +17,7 @@ class Parser:
         self.get_currencies()
 
     def get_currencies(self) -> None:
-        with open('../currencies.json', 'r') as f:
+        with open('currencies.json', 'r') as f:
             currencies = json.load(f)
 
             for item in currencies:
